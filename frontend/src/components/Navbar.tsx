@@ -5,7 +5,6 @@ import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { ThemeToggle } from './ThemeToggle'
-import Image from 'next/image'
 import { jwtDecode } from 'jwt-decode'
 
 
