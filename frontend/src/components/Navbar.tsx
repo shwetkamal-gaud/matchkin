@@ -52,16 +52,16 @@ const Navbar = () => {
                         </Link>
                     ))}
                 </div>
-                <div className="hidden md:flex items-center dark:text-white text-black md:gap-8 gap-2">
+                <div className=" flex items-center dark:text-white text-black md:gap-8 gap-2">
                     {isLoggedIn ? (
-                        <button onClick={handleLogout} className="btn bg-[#ff691f] rounded-md px-3 h-9 self-center items-center flex">Logout</button>
+                        <button onClick={handleLogout} className="btn bg-[#ff691f] rounded-md px-3 h-9 self-center items-center hidden md:flex">Logout</button>
                     ) : (
-                            <Link href="/login" className="btn bg-[#ff691f] rounded-md px-3 h-9 self-center items-center flex">Login</Link>
+                            <Link href="/login" className="btn bg-[#ff691f] rounded-md px-3 h-9 self-center items-center hidden md:flex">Login</Link>
                     )}
-                    <a className="items-center dark:text-white text-black justify-center gap-2 whitespace-nowrap text-sm font-medium dark:bg-[#634c1c] dark:hover:bg-[#634c1e] bg-[#f0e4cb] hover:bg-[#f0e4cb] h-9 rounded-md px-3 inline-flex"
+                    <a className="items-center dark:text-white text-black justify-center gap-2 whitespace-nowrap text-sm font-medium dark:bg-[#634c1c] dark:hover:bg-[#634c1e] bg-[#f0e4cb] hover:bg-[#f0e4cb] h-9 rounded-md px-3 hidden md:inline-flex"
                         href="/onboarding">Join Us</a>
-                </div>
                     <ThemeToggle />
+                </div>
                 <button className="md:hidden" onClick={() => setMobileOpen(!mobileOpen)}>
                     {mobileOpen ? <X className='dark:text-white text-black' size={24} /> : <Menu className='dark:text-white text-black' size={24} />}
                 </button>
