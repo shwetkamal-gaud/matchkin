@@ -204,7 +204,7 @@ const ConsultantOnboardingPage = () => {
                 alert(data.message || 'Submission failed');
             }
         } catch (err) {
-            alert('Something went wrong.');
+            alert('Error:' + err);
         }
     };
     return (

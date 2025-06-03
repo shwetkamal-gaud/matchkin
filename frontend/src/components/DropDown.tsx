@@ -1,5 +1,5 @@
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react';
-import { CheckIcon, ChevronDown, ChevronsUp, ChevronsUpDownIcon, ChevronsUpIcon } from 'lucide-react';
+import { CheckIcon, ChevronDown } from 'lucide-react';
 import React from 'react'
 
 const DropDown = ({

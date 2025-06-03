@@ -7,7 +7,6 @@ import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 
 
-
 const ClientOnboardingPage = () => {
   const router = useRouter();
   const [error, setError] = useState({
@@ -245,7 +244,7 @@ const ClientOnboardingPage = () => {
         alert(data.message || 'Submission failed');
       }
     } catch (err) {
-      alert('Something went wrong.');
+      alert('Error: '+ err);
     }
   };
   return (

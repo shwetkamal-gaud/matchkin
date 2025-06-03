@@ -29,7 +29,7 @@ export default function OnboardingPage() {
                         <div className="text-orange-500 mb-4">
                             <Building className='dark:text-white text-[#ff691f] w-15 h-15' />
                         </div>
-                        <h2 className="text-xl font-semibold mb-2">I'm a Client</h2>
+                        <h2 className="text-xl font-semibold mb-2">{`I'm a Client`}</h2>
                         <p className="text-gray-600 text-sm mb-4">
                             Looking to post projects and hire expert consultants to achieve your business goals.
                         </p>
@@ -48,7 +48,7 @@ export default function OnboardingPage() {
                         <div className="text-orange-500 mb-4 text-center">
                             <Search className='dark:text-white text-[#ff691f] w-15 h-15' />
                         </div>
-                        <h2 className="text-xl font-semibold mb-2">I'm a Consultant</h2>
+                        <h2 className="text-xl font-semibold mb-2">{`I'm a Consultant`}</h2>
                         <p className="text-gray-600 text-sm mb-4">
                             Ready to find exciting projects, showcase your expertise, and connect with clients.
                         </p>
