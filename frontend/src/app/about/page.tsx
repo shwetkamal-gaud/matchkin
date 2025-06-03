@@ -63,8 +63,8 @@ export default function AboutPage() {
                     transition={{ duration: 0.5 }}
                     className="container mx-auto px-6 relative z-10"
                 >
-                    <h1 className="text-4xl md:text-6xl font-bold mb-4">About Matchkin</h1>
-                    <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+                    <h1 className="text-4xl md:text-6xl font-bold dark:text-white text-black mb-4">About Matchkin</h1>
+                    <p className="text-lg md:text-xl text-[#d2ac60] max-w-3xl mx-auto">
                         Connecting exceptional talent with impactful projects through intelligent matching.
                     </p>
                 </motion.div>
@@ -78,8 +78,8 @@ export default function AboutPage() {
             >
                 <section className='text-center fade-in-up'>
                     <Target className="text-orange-500 mx-auto mb-4 space-y-16 md:space-y-24" size={48} />
-                    <h2 className="text-3xl font-bold mb-4">OUR MISSION</h2>
-                    <p className="text-base sm:text-lg text-gray-600">
+                    <h2 className="text-3xl font-bold mb-4 dark:text-white text-gray-900">OUR MISSION</h2>
+                    <p className="text-base sm:text-lg text-[#d2ac60]">
                         To revolutionize the consulting landscape by seamlessly connecting businesses with
                         the precise expertise they need, fostering innovation and driving success through
                         intelligent, data-driven matching.
@@ -97,13 +97,13 @@ export default function AboutPage() {
                     </div>
                     <div className='w-full md:w-1/2 text-left'>
                         <Briefcase className="text-orange-500 mb-4" size={40} />
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">THE MATCHKIN STORY</h2>
-                        <p className="text-[#666666] text-base sm:text-lg">
+                        <h2 className="text-3xl md:text-4xl dark:text-white text-gray-900 font-bold mb-4">THE MATCHKIN STORY</h2>
+                        <p className="text-[#d2ac60] text-base sm:text-lg">
                             Matchkin was born from a simple idea. Our team had already worked as freelancers,
                             independent consultants and consulting firms as well. When we were looking for outsourcing work
                             or independent projects we couldn’t find a platform that served our requirements.
                         </p>
-                        <p className="mt-4 text-[#666666] text-base sm:text-lg">
+                        <p className="mt-4 text-[#d2ac60] text-base sm:text-lg">
                             We built Matchkin to bridge this gap, creating a platform where AI precision meets human expertise.
                             Our goal is to empower both clients and consultants by facilitating meaningful connections that
                             lead to successful project outcomes and lasting partnerships.
@@ -112,7 +112,7 @@ export default function AboutPage() {
                 </section>
 
                 <section className='fade-in-up py-12'>
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 uppercase">Our Core Values</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-center dark:text-white text-gray-900 mb-12 uppercase">Our Core Values</h2>
                     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8'>
                         {values.map((item, index) => (
                             <motion.div
@@ -126,27 +126,26 @@ export default function AboutPage() {
                             >
 
 
-                                <div className="p-4 bg-orange-100 rounded-full mb-4 text-primary">
+                                <div className="p-4 bg-orange-100 rounded-full mb-4  text-primary">
                                     {item.icon}
                                 </div>
 
-                                <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
-                                <p className="text-sm text-gray-600 mt-2 ">{item.desc}</p>
+                                <h3 className="text-lg font-semibold dark:text-white text-gray-900">{item.title}</h3>
+                                <p className="text-sm text-[#d2ac60] mt-2 ">{item.desc}</p>
                             </motion.div>
                         ))}
                     </div>
                 </section>
                 <section className='text-center w-full fade-in-up py-10 space-y-5 font-heading'>
                     <Users className='text-orange-500 mx-auto' size={60} />
-                    <h1 className="text-3xl md:text-4xl font-bold mb-12 uppercase">Meet The Team</h1>
+                    <h1 className="text-3xl md:text-4xl dark:text-white text-gray-900 font-bold mb-12 uppercase">Meet The Team</h1>
                     <div className='grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8'>
-
                         {users.map((user, idx) => (
                             <div key={idx} className="flex flex-col items-center space-y-2">
                                 <span className="relative flex shrink-0 overflow-hidden rounded-full h-20 w-20 md:h-24 md:w-24 border-2 border-orange-500/20 ring-1 ring-orange-500">
                                     <Image width={500} height={500} className="aspect-square h-full w-full" alt="Lavanya Sharma" data-ai-hint="professional headshot" src={user.img} />
-                                </span><p className="font-semibold">{user.name}</p>
-                                <p className="text-sm text-muted-foreground">{user.position}</p>
+                                </span><p className="font-semibold dark:text-white text-gray-900">{user.name}</p>
+                                <p className="text-sm text-[#d2ac60]">{user.position}</p>
                             </div>
                         ))}
                     </div>

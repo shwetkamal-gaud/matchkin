@@ -36,14 +36,14 @@ const ClientSection = () => {
                 viewport={{ once: true }}
                 className='py-16 md:py-24 bg-gradient-to-b from-background via-secondary/5 to-background'
             >
-                <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">FOR CLIENTS</h2>
-                <p className="text-gray-600 text-lg md:w-[50%] mx-auto">
+                <h2 className="text-3xl dark:text-white md:text-4xl font-extrabold text-gray-900 mb-2">FOR CLIENTS</h2>
+                <p className="text-gray-600 dark:text-[#d2ac60] text-lg md:w-[50%] mx-auto">
                     Find Your Ideal Consultant, Faster. Leverage AI to connect with vetted experts perfectly matched to your project needs.
                 </p>
             </motion.div>
 
             <div className='py-16 bg-background container mx-auto px-4 sm:px-6'>
-                <motion.h1 transition={{ duration: 0.5, ease: 'easeOut' }} className='uppercase text-3xl font-bold mb-12'>Why Client Choose Us</motion.h1>
+                <motion.h1 transition={{ duration: 0.5, ease: 'easeOut' }} className='uppercase dark:text-white text-black text-3xl font-bold mb-12'>Why Client Choose Us</motion.h1>
                 <motion.div
                     initial="hidden"
                     whileInView="visible"
@@ -68,8 +68,8 @@ const ClientSection = () => {
                                 {item.icon}
                             </div>
 
-                            <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
-                            <p className="text-sm text-gray-600 mt-2 ">{item.desc}</p>
+                            <h3 className="text-lg font-semibold dark:text-white   text-gray-900">{item.title}</h3>
+                            <p className="text-sm text-gray-600 mt-2  dark:text-[#d2ac60]">{item.desc}</p>
                         </motion.div>
                     ))}
                 </motion.div>

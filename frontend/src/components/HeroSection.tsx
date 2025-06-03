@@ -13,7 +13,7 @@ const HeroSection = () => {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, ease: 'easeOut' }}
-                    className="text-4xl md:text-6xl font-bold md:w-[70%]  text-gray-900 leading-tight"
+                    className="text-4xl dark:text-white text-black md:text-6xl font-bold md:w-[70%]  text-gray-900 leading-tight"
                 >
                     CONNECT PROJECTS WITH EXPERT CONSULTANTS
                 </motion.h1>
@@ -22,7 +22,7 @@ const HeroSection = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.6 }}
-                    className="mt-6 text-lg md:text-xl text-gray-600"
+                    className="mt-6 text-lg md:text-xl dark:text-[#d2ac60] text-gray-600"
                 >
                     AI-powered matching for seamless collaboration. Find the perfect fit for your consulting needs.
                 </motion.p>
@@ -41,7 +41,7 @@ const HeroSection = () => {
                     </Link>
                     <Link
                         href="/consultant-onboarding"
-                        className="bg-orange-100 hover:bg-orange-200 font-body text-gray-800 font-semibold py-3 px-6 rounded-lg shadow-md transition"
+                        className="bg-orange-100 dark:bg-[#634c1c] dark:hover:bg-[#634c1e] hover:bg-orange-200 font-body dark:text-white text-gray-800 font-semibold py-3 px-6 rounded-lg shadow-md transition"
                     >
                         Join as a Consultant
                     </Link>

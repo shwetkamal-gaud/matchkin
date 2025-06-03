@@ -37,10 +37,10 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="sticky top-0 z-50 w-full border-b border-gray-200 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <nav className="sticky top-0 z-50 w-full   shadow-md  bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
                 <div className="text-xl font-bold text-indigo-600 dark:text-indigo-400">
-                    <Image src='/logo.webp' alt='Matchkin Logo' width={160} height={28} style={{ color: 'transparent' }} />
+                    <h1 className='dark:text-white text-black text-3xl'>matchkin.com</h1>
                 </div>
                 <div className="hidden md:flex gap-8">
                     {navLinks.map(link => (
@@ -53,13 +53,13 @@ const Navbar = () => {
                         </Link>
                     ))}
                 </div>
-                <div className="hidden md:flex items-center gap-8">
+                <div className="hidden md:flex items-center dark:text-white text-black gap-8">
                     {isLoggedIn ? (
                         <button onClick={handleLogout} className="btn bg-[#ff691f] rounded-md px-3 h-9 self-center items-center flex">Logout</button>
                     ) : (
                             <Link href="/login" className="btn bg-[#ff691f] rounded-md px-3 h-9 self-center items-center flex">Login</Link>
                     )}
-                    <a className="items-center justify-center gap-2 whitespace-nowrap text-sm font-medium bg-[#f0e4cb] hover:bg-[#f0e4cb] h-9 rounded-md px-3 hidden sm:inline-flex"
+                    <a className="items-center dark:text-white text-black justify-center gap-2 whitespace-nowrap text-sm font-medium dark:bg-[#634c1c] dark:hover:bg-[#634c1e] bg-[#f0e4cb] hover:bg-[#f0e4cb] h-9 rounded-md px-3 hidden sm:inline-flex"
                         href="/onboarding">Join Us</a>
                     <ThemeToggle />
                 </div>
@@ -68,7 +68,6 @@ const Navbar = () => {
                 </button>
             </div>
 
-            {/* Mobile Nav Links */}
             <AnimatePresence>
                 {mobileOpen && (
                     <motion.div
