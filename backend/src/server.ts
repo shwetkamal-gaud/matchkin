@@ -20,7 +20,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
-app.use("/api/waitlist", waitlistRoutes);
+app.use("/api/onboarding", waitlistRoutes);
 app.use("/api/chat", chatRoutes);
 
 io.on("connection", (socket) => {

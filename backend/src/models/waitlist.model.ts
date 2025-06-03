@@ -1,11 +1,46 @@
-import mongoose from "mongoose";
+// src/models/Client.ts
+import { Schema, model, Document } from 'mongoose';
 
-const WaitlistSchema = new mongoose.Schema({
-    email: { type: String, required: true, unique: true },
-    role: { type: String, enum: ["client", "consultant"], required: true },
-    name: String,
-    phone: String,
-    createdAt: { type: Date, default: Date.now },
-});
+export interface IClient extends Document {
+    accountType: string;
+    companyName?: string;
+    firstName?: string;
+    lastName?: string;
+    email: string;
+    phone?: string;
+    industry: string;
+    size: string;
+    projectType?: string;
+    description?: string;
+    budgetMin?: string;
+    budgetMax?: string;
+    timeline?: string;
+    howHeard?: string;
+    additionalInfo?: string;
+    createdAt: Date;
+    role: string
+}
 
-export default mongoose.model("Waitlist", WaitlistSchema);
+const clientSchema = new Schema<IClient>(
+    {
+        accountType: { type: String, required: true },
+        companyName: String,
+        firstName: String,
+        lastName: String,
+        email: { type: String, required: true },
+        phone: String,
+        industry: { type: String, required: true },
+        size: { type: String, required: true },
+        projectType: String,
+        description: String,
+        budgetMin: String,
+        budgetMax: String,
+        timeline: String,
+        howHeard: String,
+        additionalInfo: String,
+        role: String
+    },
+    { timestamps: true }
+);
+
+export const Client = model<IClient>('Client', clientSchema);
