@@ -12,7 +12,7 @@ import { jwtDecode } from 'jwt-decode'
 const navLinks = [
     { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },
-    { label: 'Waitlist', href: '/waitlist' },
+    // { label: 'Waitlist', href: '/waitlist' },
     { label: 'Chat', href: '/chat' },
     { label: 'Match Engine', href: '/match' },
 ]
