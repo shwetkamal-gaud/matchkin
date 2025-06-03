@@ -1,4 +1,3 @@
-// src/controllers/onboardingController.ts
 import { Request, Response } from 'express';
 import { Client } from '../models/waitlist.model';
 
