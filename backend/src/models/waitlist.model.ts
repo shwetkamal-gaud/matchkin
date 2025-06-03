@@ -29,7 +29,7 @@ const clientSchema = new Schema<IClient>(
         email: { type: String, required: true },
         phone: String,
         industry: { type: String, required: true },
-        size: { type: String, required: true },
+        size: { type: String },
         projectType: String,
         description: String,
         budgetMin: String,
