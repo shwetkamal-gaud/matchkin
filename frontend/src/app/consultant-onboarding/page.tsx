@@ -199,7 +199,7 @@ const ConsultantOnboardingPage = () => {
             });
             const data = await res.json();
             if (res.ok) {
-                router.push('/watchlist');
+                router.push('/waitlist');
             } else {
                 alert(data.message || 'Submission failed');
             }
