@@ -32,7 +32,8 @@ const ClientOnboardingPage = () => {
     budgetMax: '',
     timeline: '',
     howHeard: '',
-    clientAdditionalInfo: '',
+    additionalInfo: '',
+    role: 'Client'
   });
 
   const handleChange = (field: string, value: string) => {
@@ -217,8 +218,8 @@ const ClientOnboardingPage = () => {
         </div>
         <div>
           <label htmlFor="question" className="block mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><MessageCircleMore className='dark:text-white text-[#ff691f] w-5 h-5' /> Anything Else? (Optional) </label>
-          <textarea rows={4} id="question" value={formData.clientAdditionalInfo}
-            onChange={(e) => handleChange('clientAdditionalInfo', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="Any specific needs and questoins?" />
+          <textarea rows={4} id="question" value={formData.additionalInfo}
+            onChange={(e) => handleChange('additionalInfo', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="Any specific needs and questoins?" />
 
         </div>
       </div>,
@@ -227,11 +228,11 @@ const ClientOnboardingPage = () => {
   const handleSubmit = async () => {
     const payload = {
       ...formData,
-      accountType: formData.accountType?.toLowerCase() ?? null,
+      accountType: formData.accountType?.toLowerCase() ?? null
     };
 
     try {
-      const res = await fetch('/api/onboarding', {
+      const res = await fetch('/api/onboarding/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -244,7 +245,7 @@ const ClientOnboardingPage = () => {
         alert(data.message || 'Submission failed');
       }
     } catch (err) {
-      alert('Error: '+ err);
+      alert('Error: ' + err);
     }
   };
   return (

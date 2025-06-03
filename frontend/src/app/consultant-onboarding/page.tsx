@@ -22,10 +22,11 @@ const ConsultantOnboardingPage = () => {
         phone: '',
         industry: 'Select Industry',
         description: '',
-        clientAdditionalInfo: '',
-        job:'',
-        loaction:'',
-        hourlyRate:NaN
+        additionalInfo: '',
+        job: '',
+        loaction: '',
+        hourlyRate: NaN,
+        role: 'Consultant'
     });
 
     const handleChange = (field: string, value: string) => {
@@ -152,7 +153,7 @@ const ConsultantOnboardingPage = () => {
                     <input type="text" id="job" value={formData.job}
                         onChange={(e) => handleChange('job', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="eg., AI Strategy Consultant" />
 
-                   
+
                 </div>
                 <div>
                     <label htmlFor="description" className="block mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><Lightbulb className='dark:text-white text-[#ff691f] w-5 h-5' /> Brief Company Description (Optional) </label>
@@ -164,7 +165,7 @@ const ConsultantOnboardingPage = () => {
         {
             label: 'Budget, Timeline & More',
             content: <div className='flex flex-col gap-5'>
-                
+
                 <div>
                     <label htmlFor="loaction" className="block mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><MapPin className='dark:text-white text-[#ff691f] w-5 h-5' />  Location (Optional)</label>
                     <input type="text" value={formData.loaction}
@@ -174,11 +175,11 @@ const ConsultantOnboardingPage = () => {
                     <label htmlFor="us" className="block mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><DollarSign className='dark:text-white text-[#ff691f] w-5 h-5' />  Expected Hourly Rate (USD, Optional)</label>
                     <input type="number" value={formData.hourlyRate}
                         onChange={(e) => handleChange('hourlyRate', e.target.value)} id="budget" className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="Min (e.g, 75)" />
-                    </div>
+                </div>
                 <div>
                     <label htmlFor="question" className="block mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><MessageCircleMore className='dark:text-white text-[#ff691f] w-5 h-5' /> Anything Else? (Optional) </label>
-                    <textarea rows={4} id="question" value={formData.clientAdditionalInfo}
-                        onChange={(e) => handleChange('clientAdditionalInfo', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="Any specific needs and questoins?" />
+                    <textarea rows={4} id="question" value={formData.additionalInfo}
+                        onChange={(e) => handleChange('additionalInfo', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="Any specific needs and questoins?" />
 
                 </div>
             </div>,
