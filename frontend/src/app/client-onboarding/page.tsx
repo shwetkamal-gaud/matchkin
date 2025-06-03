@@ -171,7 +171,7 @@ const ClientOnboardingPage = () => {
           {error.industry && <p className="text-red-500 text-sm">{error.industry}</p>}
         </div>
         <div>
-          <label htmlFor="size" className="block mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><Users className='dark:text-white text-[#ff691f] w-5 h-5' />  Last name</label>
+          <label htmlFor="size" className="block mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><Users className='dark:text-white text-[#ff691f] w-5 h-5' /> Company Size</label>
           <DropDown selected={formData?.size ?? ''}
             onChange={(val) => handleChange('size', val)} data={[
               '1-10 Employees',
