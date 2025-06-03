@@ -23,12 +23,12 @@ export default function WaitlistPage() {
                         You’re on the Waitlist!
                     </h1>
                     <p className="text-gray-700 mb-6">
-                        Thank you for your interest in <span className="font-semibold">Matchkin</span>. We're excited to have you!
+                        Thank you for your interest in <span className="font-semibold">Matchkin</span>. {`We're excited to have you!`}
                     </p>
 
                     <Globe className="text-orange-500 mx-auto mb-4" size={40} />
                     <p className="text-gray-700 mb-6">
-                        We'll notify you as soon as we launch and provide early access to our platform. Stay tuned for updates!
+                       {` We'll notify you as soon as we launch and provide early access to our platform. Stay tuned for updates!`}
                     </p>
 
                     <p className="text-gray-500 text-sm mb-8">
