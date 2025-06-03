@@ -192,12 +192,11 @@ const ConsultantOnboardingPage = () => {
         };
 
         try {
-            const res = await fetch('/api/onboarding', {
+            const res = await fetch('https://matchkin-kazv.onrender.com/api/onboarding', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
             });
-
             const data = await res.json();
             if (res.ok) {
                 router.push('/watchlist');
