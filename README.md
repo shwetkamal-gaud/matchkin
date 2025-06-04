@@ -4,7 +4,7 @@ This repository contains my submission for the MatchKin challenge. The project i
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
 ### Completed Features (Landing Page + Backend)
 - Responsive **landing page UI** with onboarding form
