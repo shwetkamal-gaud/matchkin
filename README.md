@@ -61,6 +61,3 @@ cd ..
 cd frontend
 npm install
 ```
-
-## I
-
