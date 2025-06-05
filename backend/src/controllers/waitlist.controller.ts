@@ -19,9 +19,8 @@ export const submitClientOnboarding = async (req: Request, res: Response): Promi
             }
         }
 
-        const newClient = new Client(data);
-        await newClient.save();
-        res.status(201).json({ message: `${data.role} onboarded successfully.` });
+        const newClient = await Client.create(data);
+        res.status(201).json({ message: `${newClient.role} onboarded successfully.` });
 
     } catch (err) {
         console.error('Onboarding error:', err);

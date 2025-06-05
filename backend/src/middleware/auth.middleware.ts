@@ -1,20 +1,28 @@
 import { Request, Response, NextFunction } from "express";
-import jwt from "jsonwebtoken";
+import jwt, { JwtPayload } from "jsonwebtoken";
+import { User } from "../models/user.model";
 
-export const authenticate = (req: Request, res: Response, next: NextFunction) => {
-    const token = req.header("Authorization")?.split(" ")[1];
-    if (!token) {
-        res.status(401).json({ message: "Access denied" })
-
-    }
-    else {
-        try {
-            const decoded = jwt.verify(token, process.env.JWT_SECRET!);
-            (req as any).user = decoded;
-            next();
-        } catch (err) {
-            res.status(400).json({ message: "Invalid token" });
+export const authenticate = async(req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+       const token = req.cookies?.jwt 
+        if (!token) {
+            res.status(401).json({ message: "Unauthorized: No token provided" })
+            return;
         }
+        const decoded = jwt.verify(token, process.env.JWT_SECRET!) as JwtPayload;
+        if (!decoded || !decoded.userId){
+            res.status(401).json({ message: "Unauthorized: Invalid Token" })
+            return;
+        }
+        const user = await User.findById(decoded?.userId).select("-password");
+        if (!user) {
+            res.status(401).json({ message: "Unauthorized: User not found" });
+            return;
+          }
+        (req as any).user = user;
+        next()
+    } catch (error) {
+        console.error("Auth error:", error);
+        res.status(500).json({ error: 'Interval Hello error' })
     }
-
 };
