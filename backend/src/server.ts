@@ -16,7 +16,7 @@ import { app,server } from "./socket/socket";
 connectDB();
 app.use(cookieParser())
 app.use(cors({
-    origin: true, 
+  origin: ['http://localhost:3000', 'https://matchkin-six.vercel.app/'], 
     credentials: true,              
   }));
 app.use(express.json());
