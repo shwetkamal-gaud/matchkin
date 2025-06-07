@@ -9,7 +9,7 @@ const userSocketMap: Record<string, string> = {};
 
 const io = new Server(server, {
     cors: {
-        origin: ["http://localhost:3000", "https://matchkin-six.vercel.app/"],
+        origin: ["http://localhost:3000", "https://matchkin-six.vercel.app"],
         methods: ["GET", "POST"],
         credentials: true
     }

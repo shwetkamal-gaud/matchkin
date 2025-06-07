@@ -12,13 +12,13 @@ import userRoutes from './routes/user.routes'
 import groupChatRoutes from './routes/groupChat.routes'
 import s3Routes from './routes/s3.routes'
 import cookieParser from "cookie-parser";
-import { app,server } from "./socket/socket";
+import { app, server } from "./socket/socket";
 connectDB();
 app.use(cookieParser())
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://matchkin-six.vercel.app/'], 
-    credentials: true,              
-  }));
+  origin: ["http://localhost:3000", "https://matchkin-six.vercel.app"],
+  credentials: true,
+}));
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
