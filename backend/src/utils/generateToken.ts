@@ -2,7 +2,6 @@ import jwt from "jsonwebtoken";
 
 export const generateTokenAndSetCookie = (userId, res) => {
     const secretKey = process.env.JWT_SECRET
-    console.log(process.env.NODE_ENV==='production')
     const isLocal = process.env.NODE_ENV !== 'production';
     if (secretKey) {
         const token = jwt.sign({ userId }, secretKey, { expiresIn: '10d' })

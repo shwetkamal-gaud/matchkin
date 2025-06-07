@@ -7,17 +7,17 @@ import React, { useEffect } from 'react'
 
 const ChatPage = () => {
    
-    const {authUser} = useAuthContext()
+    const {authUser, loading} = useAuthContext()
     const router = useRouter();
     useEffect(() => {
-        if (!authUser) {
+        if (!authUser && !loading) {
             router.push('/login');
         }
-    }, [authUser, router]);
+    }, [authUser, router, loading]);
 
     if (!authUser) return null;
     return (
-        <div className='grid grid-cols-12 items-start  w-full px-20 py-10'>
+        <div className='grid grid-cols-12 items-start w-full md:px-18 md:py-9 p-8'>
             <Sidebar />
             <MessageComponent />
         </div>
