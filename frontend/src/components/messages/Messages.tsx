@@ -14,7 +14,7 @@ const Messages = () => {
     }, 100);
   }, [messages]);
   return (
-    <div className='px-4  max-h-full scrollbar-hidden overflow-y-auto'>
+    <div className='px-4  h-full scrollbar-hidden overflow-y-auto'>
       {!loading &&
         messages.length > 0 &&
         messages.map((message) => (
