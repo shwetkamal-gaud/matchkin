@@ -1,12 +1,13 @@
 'use client'
 import DropDown from '@/components/DropDown';
 import OnBoardingForm from '@/components/OnBoardingForm';
-import { FormData } from '@/type/type';
+import getBaseUrl from '@/lib/getBaseUrl';
+import { FormData } from '@/types/types';
 import { Building, CalendarRange, ChartColumnBig, DollarSign, Lightbulb, Mail, MessageCircleMore, Phone, User, Users } from 'lucide-react'
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 
-
+const baseUrl = getBaseUrl()
 const ClientOnboardingPage = () => {
   const router = useRouter();
   const [error, setError] = useState({
@@ -37,7 +38,7 @@ const ClientOnboardingPage = () => {
   });
 
   const handleChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev: FormData) => ({ ...prev, [field]: value }));
   };
   const validateStep1 = (formData: FormData) => {
     const newErrors = {
@@ -74,7 +75,6 @@ const ClientOnboardingPage = () => {
       industry: '',
       size: '',
     };
-    console.log(formData.industry, formData.size)
     if (!formData.industry.trim() || formData.industry === 'Select Industry') {
       newErrors.industry = 'Industry is required';
     }
@@ -117,36 +117,36 @@ const ClientOnboardingPage = () => {
           {formData.accountType === 'Individual' ?
             <>
               <div>
-                <label htmlFor="first_name" className="block mb-2 flex items-center gap-1  text-sm font-medium text-gray-900 dark:text-white"><User className='dark:text-white text-[#ff691f] w-5 h-5' />  First name</label>
+                <label htmlFor="first_name" className=" mb-2 flex items-center gap-1  text-sm font-medium text-gray-900 dark:text-white"><User className='dark:text-white text-[#ff691f] w-5 h-5' />  First name</label>
                 <input type="text" id="first_name" value={formData.firstName}
-                  onChange={(e) => handleChange('firstName', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="eg., John" />
+                  onChange={(e) => handleChange('firstName', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2  w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="eg., John" />
                 {error.firstName && <p className="text-red-500 text-sm">{error.firstName}</p>}
               </div>
               <div>
-                <label htmlFor="last_name" className="block mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><User className='dark:text-white text-[#ff691f] w-5 h-5' />  Last name</label>
+                <label htmlFor="last_name" className=" mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><User className='dark:text-white text-[#ff691f] w-5 h-5' />  Last name</label>
                 <input type="text" id="last_name" value={formData.lastName}
-                  onChange={(e) => handleChange('lastName', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="eg., Doe" />
+                  onChange={(e) => handleChange('lastName', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2  w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="eg., Doe" />
                 {error.lastName && <p className="text-red-500 text-sm">{error.lastName}</p>}
               </div>
             </>
             :
             <div>
-              <label htmlFor="company_name" className="block mb-2 flex items-center gap-1  text-sm font-medium text-gray-900 dark:text-white"><Building className='dark:text-white text-[#ff691f] w-5 h-5' />  Company name</label>
+              <label htmlFor="company_name" className=" mb-2 flex items-center gap-1  text-sm font-medium text-gray-900 dark:text-white"><Building className='dark:text-white text-[#ff691f] w-5 h-5' />  Company name</label>
               <input type="text" id="company_name" value={formData.companyName}
-                onChange={(e) => handleChange('companyName', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="eg., John" />
+                onChange={(e) => handleChange('companyName', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2  w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="eg., John" />
               {error.companyName && <p className="text-red-500 text-sm">{error.companyName}</p>}
             </div>
           }
           <div>
-            <label htmlFor="email" className="block mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><Mail className='dark:text-white text-[#ff691f] w-5 h-5' />  Work Email</label>
+            <label htmlFor="email" className=" mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><Mail className='dark:text-white text-[#ff691f] w-5 h-5' />  Work Email</label>
             <input type="email" id="email" value={formData.email}
-              onChange={(e) => handleChange('email', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="you@company.com" required />
+              onChange={(e) => handleChange('email', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2  w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="you@company.com" required />
             {error.email && <p className="text-red-500 text-sm">{error.email}</p>}
           </div>
           <div>
-            <label htmlFor="phone" className="block mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><Phone className='dark:text-white text-[#ff691f] w-5 h-5' /> Phone(Optional) </label>
+            <label htmlFor="phone" className=" mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><Phone className='dark:text-white text-[#ff691f] w-5 h-5' /> Phone(Optional) </label>
             <input type="text" id="phone" value={formData.phone}
-              onChange={(e) => handleChange('phone', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="+1 123 456 7890" />
+              onChange={(e) => handleChange('phone', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2  w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="+1 123 456 7890" />
           </div>
         </div>
       ),
@@ -155,7 +155,7 @@ const ClientOnboardingPage = () => {
       label: 'Company & Project Needs',
       content: <div className='flex flex-col gap-5'>
         <div>
-          <label htmlFor="industury" className="block mb-2 flex items-center gap-1  text-sm font-medium text-gray-900 dark:text-white"><Building className='dark:text-white text-[#ff691f] w-5 h-5' />  Your Industry</label>
+          <label htmlFor="industury" className=" mb-2 flex items-center gap-1  text-sm font-medium text-gray-900 dark:text-white"><Building className='dark:text-white text-[#ff691f] w-5 h-5' />  Your Industry</label>
           <DropDown selected={formData.industry}
             onChange={(val) => handleChange('industry', val)} data={[
               'Technology',
@@ -171,7 +171,7 @@ const ClientOnboardingPage = () => {
           {error.industry && <p className="text-red-500 text-sm">{error.industry}</p>}
         </div>
         <div>
-          <label htmlFor="size" className="block mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><Users className='dark:text-white text-[#ff691f] w-5 h-5' /> Company Size</label>
+          <label htmlFor="size" className=" mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><Users className='dark:text-white text-[#ff691f] w-5 h-5' /> Company Size</label>
           <DropDown selected={formData?.size ?? ''}
             onChange={(val) => handleChange('size', val)} data={[
               '1-10 Employees',
@@ -183,14 +183,14 @@ const ClientOnboardingPage = () => {
           {error.size && <p className="text-red-500 text-sm">{error.size}</p>}
         </div>
         <div>
-          <label htmlFor="type" className="block mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><Lightbulb className='dark:text-white text-[#ff691f] w-5 h-5' /> Typical Project Types (Optional)</label>
+          <label htmlFor="type" className=" mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><Lightbulb className='dark:text-white text-[#ff691f] w-5 h-5' /> Typical Project Types (Optional)</label>
           <textarea rows={4} id="type" value={formData.projectType}
-            onChange={(e) => handleChange('projectType', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="e.g, AI/ML developement, Web Application, Data Analysis" required />
+            onChange={(e) => handleChange('projectType', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2  w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="e.g, AI/ML developement, Web Application, Data Analysis" required />
         </div>
         <div>
-          <label htmlFor="description" className="block mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><Lightbulb className='dark:text-white text-[#ff691f] w-5 h-5' /> Brief Company Description (Optional) </label>
+          <label htmlFor="description" className=" mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><Lightbulb className='dark:text-white text-[#ff691f] w-5 h-5' /> Brief Company Description (Optional) </label>
           <textarea rows={4} id="description" value={formData.description}
-            onChange={(e) => handleChange('description', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="Tell us about your company..." />
+            onChange={(e) => handleChange('description', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2  w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="Tell us about your company..." />
         </div>
       </div>,
     },
@@ -198,28 +198,28 @@ const ClientOnboardingPage = () => {
       label: 'Budget, Timeline & More',
       content: <div className='flex flex-col gap-5'>
         <div>
-          <label htmlFor="budget" className="block mb-2 flex items-center gap-1  text-sm font-medium text-gray-900 dark:text-white"><DollarSign className='dark:text-white text-[#ff691f] w-5 h-5' /> Typical Project Budget (USD, Optional)</label>
+          <label htmlFor="budget" className=" mb-2 flex items-center gap-1  text-sm font-medium text-gray-900 dark:text-white"><DollarSign className='dark:text-white text-[#ff691f] w-5 h-5' /> Typical Project Budget (USD, Optional)</label>
           <div className='flex gap-3'>
             <input type="number" id="budget" value={formData.budgetMin}
-              onChange={(e) => handleChange('budgetMin', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="Min (e.g, 5000)" />
+              onChange={(e) => handleChange('budgetMin', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2  w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="Min (e.g, 5000)" />
             <input type="number" value={formData.budgetMax}
-              onChange={(e) => handleChange('budgetMax', e.target.value)} id="budget" className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="Min (e.g, 20000)" />
+              onChange={(e) => handleChange('budgetMax', e.target.value)} id="budget" className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2  w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="Min (e.g, 20000)" />
           </div>
         </div>
         <div>
-          <label htmlFor="timeline" className="block mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><CalendarRange className='dark:text-white text-[#ff691f] w-5 h-5' />  Typical Project Timeline (Optional)</label>
+          <label htmlFor="timeline" className=" mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><CalendarRange className='dark:text-white text-[#ff691f] w-5 h-5' />  Typical Project Timeline (Optional)</label>
           <input type="text" value={formData.timeline}
-            onChange={(e) => handleChange('timeline', e.target.value)} id="timeline" className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="e.g, 1-3 months, 6+ months" />
+            onChange={(e) => handleChange('timeline', e.target.value)} id="timeline" className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2  w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="e.g, 1-3 months, 6+ months" />
         </div>
         <div>
-          <label htmlFor="us" className="block mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><ChartColumnBig className='dark:text-white text-[#ff691f] w-5 h-5' />  How did you hear about us? (Optional)</label>
+          <label htmlFor="us" className=" mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><ChartColumnBig className='dark:text-white text-[#ff691f] w-5 h-5' />  How did you hear about us? (Optional)</label>
           <input type="text" id="us" value={formData.howHeard}
-            onChange={(e) => handleChange('howHeard', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="e.g, LinkedIn, Collegue, Search Engine" />
+            onChange={(e) => handleChange('howHeard', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2  w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="e.g, LinkedIn, Collegue, Search Engine" />
         </div>
         <div>
-          <label htmlFor="question" className="block mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><MessageCircleMore className='dark:text-white text-[#ff691f] w-5 h-5' /> Anything Else? (Optional) </label>
+          <label htmlFor="question" className=" mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white"><MessageCircleMore className='dark:text-white text-[#ff691f] w-5 h-5' /> Anything Else? (Optional) </label>
           <textarea rows={4} id="question" value={formData.additionalInfo}
-            onChange={(e) => handleChange('additionalInfo', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="Any specific needs and questoins?" />
+            onChange={(e) => handleChange('additionalInfo', e.target.value)} className=" border border-gray-200 text-gray-900 text-sm rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff691f] focus-visible:ring-offset-2  w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#ff691f] dark:focus:border-[#ff691f]" placeholder="Any specific needs and questoins?" />
 
         </div>
       </div>,
@@ -232,7 +232,7 @@ const ClientOnboardingPage = () => {
     };
 
     try {
-      const res = await fetch('https://matchkin-kazv.onrender.com/api/onboarding/', {
+      const res = await fetch(`${baseUrl}/api/onboarding/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

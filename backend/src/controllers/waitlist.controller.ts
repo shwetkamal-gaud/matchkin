@@ -12,7 +12,6 @@ export const submitClientOnboarding = async (req: Request, res: Response): Promi
             }
         }
         else{
-            console.log(req.body)
             if (!data.email || !data.industry) {
                 res.status(400).json({ message: 'Missing required fields.' });
                 return;

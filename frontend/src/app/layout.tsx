@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import {  Montserrat, Roboto } from "next/font/google";
+import { Montserrat, Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/context/ThemeContext";
+import { SocketContextProvider } from "@/context/SocketContext";
+import { AuthContextProvider } from "@/context/AuthContext";
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -31,12 +33,16 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} ${montserrat.variable} antialiased flex flex-col`}
       >
-        <ThemeProvider>
-          <Navbar />
-          <main className="flex-grow h-full flex">
-            {children}
-          </main>
-        </ThemeProvider>
+        <AuthContextProvider>
+          <SocketContextProvider>
+            <ThemeProvider>
+              <Navbar />
+              <main className="flex-grow h-full flex">
+                {children}
+              </main>
+            </ThemeProvider>
+          </SocketContextProvider>
+        </AuthContextProvider>
       </body>
     </html>
   );

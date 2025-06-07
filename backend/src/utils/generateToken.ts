@@ -6,10 +6,10 @@ export const generateTokenAndSetCookie = (userId, res) => {
         const token = jwt.sign({ userId }, secretKey, { expiresIn: '10d' })
         res.cookie("jwt", token,
             {
-                maxAge: 10 * 24 * 60 * 60 * 1000,
                 httpOnly: true,
-                sameSite: 'strict',
-                secure: process.env.NODE_ENV !== 'development'
+                secure: process.env.NODE_ENV !== "development",
+                sameSite: "Lax",
+                maxAge: 10 * 24 * 60 * 60 * 1000,
             }
         )
     }

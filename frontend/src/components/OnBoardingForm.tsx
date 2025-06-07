@@ -3,19 +3,19 @@ import React, { ReactNode, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, CircleCheckBig } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { FormData } from '@/type/type';
+import { FormData } from '@/types/types';
 
-const OnBoardingForm = ({ steps, title, handleSubmit, validateStep1, validateStep2, formData }: { steps: { label: string, content: ReactNode }[], title: string, handleSubmit: () => void, validateStep1: (value:FormData) => boolean, validateStep2: (value:FormData) => boolean, formData: FormData }) => {
+const OnBoardingForm = ({ steps, title, handleSubmit, validateStep1, validateStep2, formData }: { steps: { label: string, content: ReactNode }[], title: string, handleSubmit: () => void, validateStep1: (value: FormData) => boolean, validateStep2: (value: FormData) => boolean, formData: FormData }) => {
     const [step, setStep] = useState(0);
-      const router = useRouter();
-    
+    const router = useRouter();
+
     return (
         <div className="flex-grow flex justify-center items-center bg-card overflow-hidden">
             <motion.div
                 layout
                 className="w-full max-w-xl rounded-lg shadow-xl p-6"
             >
-                <h2 className="text-2xl font-semibold text-center">{title + 'Onboarding'}</h2>
+                <h2 className="text-2xl font-semibold text-gary-900 dark:text-white text-center">{title + 'Onboarding'}</h2>
                 <p className="text-sm text-center text-gray-600 mb-4">
                     Step {step + 1} of 3: {steps[step].label}
                 </p>
@@ -43,15 +43,16 @@ const OnBoardingForm = ({ steps, title, handleSubmit, validateStep1, validateSte
 
                 <div className="mt-6 flex justify-between">
                     <button
-                        
-                        onClick={() => {if (step>0){
 
-                            setStep(step - 1)
-                        } 
-                        else{
-                           router.push('/onboarding') 
-                        }
-                    }}
+                        onClick={() => {
+                            if (step > 0) {
+
+                                setStep(step - 1)
+                            }
+                            else {
+                                router.push('/onboarding')
+                            }
+                        }}
                         className="px-4 flex items-center gap-1 py-2 bg-gray-200 rounded disabled:opacity-50"
                     >
                         <ArrowLeft className='w-4 h-4' /> Back
@@ -62,9 +63,9 @@ const OnBoardingForm = ({ steps, title, handleSubmit, validateStep1, validateSte
                                 if (step === 0 && validateStep1(formData)) {
                                     setStep(1);
                                 } else if (step === 1 && validateStep2(formData)) {
-                                    console.log(step)
+                                    
                                     setStep(2);
-                                  }
+                                }
                             }
                             else {
                                 handleSubmit()

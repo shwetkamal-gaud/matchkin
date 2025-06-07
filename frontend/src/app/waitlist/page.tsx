@@ -19,19 +19,19 @@ export default function WaitlistPage() {
                     <div className='rounded-full flex self-center justify-center items-center p-2 ring-4 bg-green-100 ring-green-200'>
                         <CheckCircle className="text-green-500 mx-auto w-17 h-17" />
                     </div>
-                    <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+                    <h1 className="text-2xl sm:text-3xl font-bold text-gary-900 dark:text-white mb-2">
                         You’re on the Waitlist!
                     </h1>
-                    <p className="text-gray-700 mb-6">
+                    <p className="text-gray-700  dark:text-white/70 mb-6">
                         Thank you for your interest in <span className="font-semibold">Matchkin</span>. {`We're excited to have you!`}
                     </p>
 
                     <Globe className="text-orange-500 mx-auto mb-4" size={40} />
-                    <p className="text-gray-700 mb-6">
+                    <p className="text-gray-700  dark:text-white/70 mb-6">
                        {` We'll notify you as soon as we launch and provide early access to our platform. Stay tuned for updates!`}
                     </p>
 
-                    <p className="text-gray-500 text-sm mb-8">
+                    <p className="text-gray-700  dark:text-white/50 text-sm mb-8">
                         In the meantime, feel free to explore our homepage or learn more about us.
                     </p>
 

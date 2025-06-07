@@ -1,4 +1,4 @@
-import ClientSection from "@/components/ClientSection";
+import ClientSection from "@/components/sidebar/ClientSection";
 import HeroSection from "@/components/HeroSection";
 
 export default function Home() {
