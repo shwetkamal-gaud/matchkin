@@ -8,7 +8,7 @@ import useConverstion from '@/store/useConversation'
 const MessageComponent = () => {
   const { selectedConversation } = useConverstion()
   return (
-    <div className='col-span-8 flex flex-col dark:bg-[#2e2d2b]   max-h-[82.6vh] h-full shadow-md rounded-r-lg '>
+    <div className='col-span-8 flex flex-col dark:bg-[#2e2d2b] h-full shadow-md rounded-r-lg '>
       {
         !selectedConversation ? <NotSelected /> :
           <>

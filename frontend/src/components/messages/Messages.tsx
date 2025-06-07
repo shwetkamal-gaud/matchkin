@@ -1,4 +1,4 @@
-import React, {  useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Message from './Message'
 import useGetMessages from '@/hooks/useGetMessages'
 import useListenMessages from '@/hooks/useListenMessages'
@@ -14,16 +14,19 @@ const Messages = () => {
     }, 100);
   }, [messages]);
   return (
-    <div className={`px-4 flex flex-col ${!loading ?'justify-end' :''} h-full scrollbar-hidden overflow-y-auto`}>
-      {!loading &&
-        messages.length > 0 &&
-        messages.map((message) => (
-          <div key={message._id} ref={lastMessageRef}>
-            <Message message={message} />
-          </div>
-        ))}
+    <div className={`px-4 flex flex-col ${!loading ? 'justify-end' : ''} max-h-[67.6vh] h-full`}>
+      <div className=' scrollbar-hidden overflow-y-auto'>
 
-      {loading && <LoadingComponent/>}
+        {!loading &&
+          messages.length > 0 &&
+          messages.map((message) => (
+            <div key={message._id} ref={lastMessageRef}>
+              <Message message={message} />
+            </div>
+          ))}
+      </div>
+
+      {loading && <LoadingComponent />}
       {!loading && messages.length === 0 && (
         <p className='text-center'>Send a message to start the conversation</p>
       )}
