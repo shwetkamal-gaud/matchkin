@@ -45,7 +45,7 @@ export const SocketContextProvider = ({ children }: { children: React.ReactNode 
             setSocket(null);
             setOnlineUsers([]);
         }
-    }, [authUser, socket]);
+    }, [authUser]);
 
     return (
         <SocketContext.Provider value={{ socket, onlineUsers }}>
