@@ -9,6 +9,7 @@ import ProfilePicUplod from "./ProfilePicUplod";
 import { useAuthStore } from '@/store/authStore';
 import { useRouter } from "next/navigation";
 import { useAuthContext } from "@/context/AuthContext";
+import {  Payload } from "@/types/types";
 const baseUrl = getBaseUrl();
 
 const AuthPage = ({ type }: { type: "login" | "signup" }) => {
@@ -17,15 +18,13 @@ const AuthPage = ({ type }: { type: "login" | "signup" }) => {
     const [password, setPassword] = useState("");
     const [otpRequested, setOtpRequested] = useState(false);
     const [otp, setOtp] = useState(["", "", "", ""]);
-    const [profilePicUrl, setProfilePicUrl] = useState("");
-    const [profilePicKey, setProfilePicKey] = useState("");
     const [name, setName] = useState("");
     const [gender, setGender] = useState("");
     const [role, setRole] = useState("");
     const [profilePic, setProfilePic] = useState<File | null>(null);
     const router = useRouter()
     const login = useAuthStore((state) => state.login)
-    const {setAuthUser} = useAuthContext()
+    const { setAuthUser } = useAuthContext()
     const handleOtpChange = (index: number, value: string) => {
         if (/^\d$/.test(value)) {
             const newOtp = [...otp];
@@ -40,7 +39,7 @@ const AuthPage = ({ type }: { type: "login" | "signup" }) => {
             const newOtp = [...otp];
 
             if (otp[index]) {
-               
+
                 newOtp[index] = '';
                 setOtp(newOtp);
             } else if (index > 0) {
@@ -49,7 +48,7 @@ const AuthPage = ({ type }: { type: "login" | "signup" }) => {
                 setOtp(newOtp);
             }
         }
-      };
+    };
 
     const handleRequestOTP = async () => {
         const res = await fetch(`${baseUrl}/api/auth/otp/request`, {
@@ -73,7 +72,7 @@ const AuthPage = ({ type }: { type: "login" | "signup" }) => {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email, otp: enteredOTP }),
-            credentials:'include'
+            credentials: 'include'
         });
 
         const data = await res.json();
@@ -88,9 +87,9 @@ const AuthPage = ({ type }: { type: "login" | "signup" }) => {
     };
 
     const handleLoginOrSignup = async () => {
-        let uploadedImageUrl = profilePicUrl;
+        let uploadedImageUrl = '';
 
-        if (type === "signup" && profilePic && !profilePicUrl) {
+        if (type === "signup" && profilePic) {
             try {
                 const s3Res = await fetch(`${baseUrl}/api/s3/generate-upload-url`, {
                     method: 'POST',
@@ -99,7 +98,7 @@ const AuthPage = ({ type }: { type: "login" | "signup" }) => {
                         fileName: profilePic.name,
                         fileType: profilePic.type,
                     }),
-                    
+
                 });
 
                 const { signedUrl, fileUrl } = await s3Res.json();
@@ -117,7 +116,7 @@ const AuthPage = ({ type }: { type: "login" | "signup" }) => {
             }
         }
         const url = type === "signup" ? `${baseUrl}/api/auth/signup` : `${baseUrl}/api/auth/login`;
-        const payload: any = { email, password };
+        const payload: Payload = { email, password };
 
         if (type === "signup") {
             payload.name = name;
@@ -137,7 +136,7 @@ const AuthPage = ({ type }: { type: "login" | "signup" }) => {
         if (res.ok) {
             login({ email: data.email, name: data.name })
             setAuthUser(data)
-            localStorage.setItem("user",JSON.stringify(data))
+            localStorage.setItem("user", JSON.stringify(data))
             router.push('/')
         } else {
             alert(data?.error || "Failed");
@@ -220,7 +219,6 @@ const AuthPage = ({ type }: { type: "login" | "signup" }) => {
                                 onChnage={(file) => setProfilePic(file)}
                                 onRemove={() => {
                                     setProfilePic(null);
-                                    setProfilePicKey("");
                                 }}
                             />
                         </>
@@ -286,7 +284,7 @@ const AuthPage = ({ type }: { type: "login" | "signup" }) => {
                 <div className="mt-4 text-center text-gray-600 dark:text-white/70 text-sm">
                     {type === "login" ? (
                         <p>
-                            Don't have an account?{" "}
+                           {" Don't have an account?"}{" "}
                             <Link href="/signup" className="text-orange-500 hover:underline">Sign Up</Link>
                         </p>
                     ) : (

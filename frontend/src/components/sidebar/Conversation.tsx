@@ -4,7 +4,7 @@ import { Conversation } from '@/types/types'
 import Image from 'next/image'
 import React from 'react'
 
-const ConversationJsx = ({ conversation, lastIdx }: { conversation: Conversation, lastIdx: boolean }) => {
+const ConversationJsx = ({ conversation }: { conversation: Conversation, lastIdx: boolean }) => {
     const { selectedConversation, setSelectedConverstion } = useConverstion()
 
     const isSelected = selectedConversation?._id === conversation._id

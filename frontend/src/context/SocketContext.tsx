@@ -23,7 +23,9 @@ export const SocketContextProvider = ({ children }: { children: React.ReactNode 
 
     useEffect(() => {
         if (authUser?._id) {
-            const newSocket = io("http://localhost:5000", {
+            const newSocket = io(process.env.NODE_ENV === "development"
+                ? "http://localhost:5000"
+                : "https://matchkin-kazv.onrender.com", {
                 query: { userId: authUser._id },
             });
 
@@ -43,7 +45,7 @@ export const SocketContextProvider = ({ children }: { children: React.ReactNode 
             setSocket(null);
             setOnlineUsers([]);
         }
-    }, [authUser]);
+    }, [authUser, socket]);
 
     return (
         <SocketContext.Provider value={{ socket, onlineUsers }}>

@@ -6,7 +6,7 @@ import useConverstion from '@/store/useConversation'
 
 
 const MessageComponent = () => {
-  const { selectedConversation, setSelectedConverstion } = useConverstion()
+  const { selectedConversation } = useConverstion()
   return (
     <div className='col-span-8 flex flex-col h-full shadow-md rounded-r-lg '>
       {

@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image';
 import React, { useRef, useState } from 'react'
 
 interface Props {
@@ -29,7 +30,7 @@ const ProfilePicUplod = ({ onChnage, onRemove }: Props) => {
           <input ref={inputRef} type="file" accept="image/*" onChange={handleFileChange} />
           {preview && (
               <div className="mt-2 flex items-center gap-4">
-                  <img src={preview} alt="Preview" className="w-20 h-20 rounded-full object-cover" />
+                  <Image width={200} height={200} src={preview} alt="Preview" className="w-20 h-20 rounded-full object-cover" />
                   <button className="text-orange-500 text-sm underline" onClick={handleRemove}>Remove</button>
               </div>
           )}

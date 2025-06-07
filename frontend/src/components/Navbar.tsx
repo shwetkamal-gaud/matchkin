@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { ThemeToggle } from './ThemeToggle'
 import { useAuthStore } from '@/store/authStore'
 import getBaseUrl from '@/lib/getBaseUrl'

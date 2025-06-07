@@ -48,3 +48,12 @@ export interface User {
   email: string,
   profilePic: string
 }
+
+export interface Payload {
+  email: string,
+  name?: string,
+  password: string,
+  gender?: string,
+  role?:string,
+  profilePicture?: string
+}
