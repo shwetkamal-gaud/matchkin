@@ -74,7 +74,7 @@ export const logout = async (req: Request, res: Response): Promise<void> => {
 
 export const requestOtp = async (req: Request, res: Response) => {
     const { email } = req.body;
-    deleteOtp(email)
+  
     const otp = Math.floor(1000 + Math.random() * 9000).toString();
     setOtp(email, otp);
     await sendOtpEmail(email, otp);
@@ -90,6 +90,7 @@ export const loginWithOtp = async (req: Request, res: Response) => {
     if (!user) { res.status(400).json({ error: "User not found" }); return }
 
     generateTokenAndSetCookie(user?._id, res)
+    deleteOtp(email)
     res.status(200).json({
         message: "OTP Login successful",
         _id: user._id,

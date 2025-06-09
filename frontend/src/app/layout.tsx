@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { SocketContextProvider } from "@/context/SocketContext";
 import { AuthContextProvider } from "@/context/AuthContext";
-
+import { ToastContainer } from 'react-toastify';
 const roboto = Roboto({
   subsets: ['latin'],
   weight: ['400', '700'],
@@ -40,6 +40,7 @@ export default function RootLayout({
               <main className="flex-grow h-full flex">
                 {children}
               </main>
+              <ToastContainer/>
             </ThemeProvider>
           </SocketContextProvider>
         </AuthContextProvider>

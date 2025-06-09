@@ -107,3 +107,6 @@ a {
 
   scrollbar-width: none;
 }
+input[type="radio"]{
+  accent-color: #ff691f;
+}

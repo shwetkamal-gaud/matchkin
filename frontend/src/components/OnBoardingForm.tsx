@@ -10,10 +10,10 @@ const OnBoardingForm = ({ steps, title, handleSubmit, validateStep1, validateSte
     const router = useRouter();
 
     return (
-        <div className="flex-grow flex justify-center items-center bg-card overflow-hidden">
+        <div className="flex-grow flex justify-center items-center   overflow-hidden">
             <motion.div
                 layout
-                className="w-full max-w-xl rounded-lg shadow-xl p-6"
+                className="w-full dark:bg-[#2e2d2b] max-w-xl rounded-lg shadow-xl p-6"
             >
                 <h2 className="text-2xl font-semibold text-gary-900 dark:text-white text-center">{title + 'Onboarding'}</h2>
                 <p className="text-sm text-center text-gray-600 mb-4">

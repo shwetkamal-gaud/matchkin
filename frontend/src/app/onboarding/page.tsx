@@ -14,7 +14,7 @@ export default function OnboardingPage() {
 
     return (
         <div className=" flex items-center justify-center w-full  px-4">
-            <div className="max-w-2xl w-full bg-card rounded-xl shadow-xl p-8 text-center">
+            <div className="max-w-2xl dark:bg-[#2e2d2b] w-full bg-card rounded-xl shadow-xl p-8 text-center">
                 <h1 className="text-3xl font-bold mb-2 text-gary-900 dark:text-white">Join Our Waitlist</h1>
                 <p className="text-gray-600 mb-10">Tell us who you are to get started.</p>
 

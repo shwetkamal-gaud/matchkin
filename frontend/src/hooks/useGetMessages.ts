@@ -1,6 +1,7 @@
 import getBaseUrl from "@/lib/getBaseUrl";
 import useConverstion from "@/store/useConversation"
 import { useEffect, useState } from "react"
+import { toast } from "react-toastify";
 const baseUrl = getBaseUrl();
 
 
@@ -17,6 +18,7 @@ const useGetMessages = () => {
                 setMessages(data)
                 
             } catch (error) {
+                toast.error(error?.toString())
                 console.error("Error:", error)
             }finally{
                 setLoading(false)

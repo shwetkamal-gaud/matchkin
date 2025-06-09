@@ -149,7 +149,7 @@ const AuthPage = ({ type }: { type: "login" | "signup" }) => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className=" backdrop-blur-lg shadow-lg dark:shadow-2xl  rounded-lg p-6 w-full max-w-sm"
+                className=" backdrop-blur-lg shadow-lg dark:shadow-2xl  dark:bg-[#2e2d2b]  rounded-lg p-6 w-full max-w-sm"
             >
                 <div className="text-orange-500 mb-4 flex justify-center">
                     <Building className="w-12 h-12 text-[#ff691f]" />

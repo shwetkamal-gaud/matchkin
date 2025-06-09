@@ -21,7 +21,7 @@ const navLinks = [
 
 const Navbar = () => {
     const [mobileOpen, setMobileOpen] = useState(false)
-    const {authUser} = useAuthContext()
+    const {authUser, setAuthUser} = useAuthContext()
     const logout = useAuthStore((state) => state.logout);
     const router = useRouter();
     const handleLogout = async () => {
@@ -31,6 +31,7 @@ const Navbar = () => {
             });
             logout();
             localStorage.removeItem('user')
+            setAuthUser(null);
             router.push('/login');
         } catch (err) {
             console.error("Logout failed", err);
