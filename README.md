@@ -12,8 +12,6 @@ This repository contains my submission for the MatchKin challenge. The project i
 - **Form validation** based on account type (Individual / Company)
 - Integrated **backend API** to store consultant watchlist data in MongoDB
 - Built using **Next.js App Router**, **TypeScript**, and **TailwindCSS**
-
-### In Progress (Chat Application)
 - Real-time personal & group chat system
 - OTP-based email login
 - Socket.IO for messaging
