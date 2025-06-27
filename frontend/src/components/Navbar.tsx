@@ -16,7 +16,6 @@ const navLinks = [
     { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },
     { label: 'Chat', href: '/chat' },
-    { label: 'Match Engine', href: '/match' },
 ]
 
 const Navbar = () => {
